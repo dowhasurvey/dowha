@@ -123,7 +123,7 @@
             <div class="mb-3">
                 {% for comment in answer.comment_set.all %}
                 <a name="comment_{{ comment.id }}"></a>
-                <div class="comment py-2 text-muted">
+                <div class="comment py-2 pl-3 text-muted">
                     <span style="white-space: pre-line;">{{ comment.content }}</span>
                     <span>
                                 - {{ comment.author }}, {{ comment.create_date }}

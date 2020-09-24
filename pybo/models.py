@@ -8,8 +8,17 @@ class Question(models.Model):
     create_date = models.DateTimeField()
     modify_date = models.DateTimeField(null=True, blank=True)
     voter = models.ManyToManyField(User, related_name='voter_question')
+    hits = models.PositiveIntegerField(default = 0)
     def __str__(self):
         return self.subject
+
+    @property
+    def hits_counter(self):
+        """
+        조회수 등록
+        """
+        self.hits += 1
+        self.save()
 
 
 class Answer(models.Model):

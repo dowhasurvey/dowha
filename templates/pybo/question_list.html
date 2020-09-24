@@ -24,8 +24,9 @@
         <tr class="text-center bg-light noto">
             <!--<th class="text-left">번호</th> -->
             <th class="text-sm-left" style="width:10%"><img src= "/static/img/ic_thumbs_up_normal.png" width="24px" max-width: 100%; height: auto;></th>
-            <th class="text-md-center" style="width:60%">제 목</th>
-            <th class="text-md-left" style="width:20%">글쓴이</th>
+            <th class="text-center" style="width:55%">제 목</th>
+            <th class="text-left" style="width:10%">글쓴이</th>
+            <th class="text-center" style="width:5%"><img src= "/static/img/ic_my_sns_normal.png" width="24px" max-width: 100%; height: auto;></th>
 <!--            <th class="text-md-center">날짜</th>-->
         </tr>
         </thead>
@@ -37,6 +38,7 @@
 <!--                &lt;!&ndash; 번호 = 전체건수 - 시작인덱스 - 현재인덱스 + 1 &ndash;&gt;-->
 <!--                {{ question_list.paginator.count|sub:question_list.start_index|sub:forloop.counter0|add:1 }}-->
 <!--            </td>-->
+
             <td>
                 <!--추천 badge-->
                 {% if question.voter.all.count > 0 %}
@@ -54,6 +56,9 @@
             </td>
             <td>{{ question.author.username }}</td>
 <!--            <td style="font-size: 0.90em">{{ question.create_date }}</td>-->
+            <td>
+                <span class ="text-center small ml-2" > {{ question.hits }}</span>
+            </td>
         </tr>
         {% endfor %}
         {% else %}
